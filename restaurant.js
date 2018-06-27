@@ -19,27 +19,38 @@ var tables = [
     }
 ];
 
-app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
-});
+// app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname, "index.html"));
+// });
 
-app.get("/reservations", function(req, res) {
-    res.sendFile(path.join(__dirname, "reservations.html"));
-});
+// app.get("/reservations", function(req, res) {
+//     res.sendFile(path.join(__dirname, "reservations.html"));
+// });
 
-app.get("/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
-});
+// app.get("/tables", function(req, res) {
+//     res.sendFile(path.join(__dirname, "tables.html"));
+// });
 
 
 
 //displays tables
-app.get("/tableArray", function(req, res) {
+app.get("/api/tablearray", function(req, res) {
     for (var i=0; i < tables.length; i++) {
      return res.json(tables);
     }
 });
 
+app.post("/api/tablearray", function(req, res) {
+    var newTable = req.body;
+    newTable.id = newTable.name.replace(/\s+/g, "").toLowerCase();
+    
+    console.log(newTable);
+
+    tables.push(newTable);
+
+    res.json(newTable);
+
+})
 
 
 app.listen(PORT, function() {
