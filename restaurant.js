@@ -19,7 +19,29 @@ var tables = [
     }
 ];
 
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
 
-app.get("/api/tables," function(req, res) {
-    return res.json(tables);
-})
+app.get("/reservations", function(req, res) {
+    res.sendFile(path.join(__dirname, "reservations.html"));
+});
+
+app.get("/tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+
+
+//displays tables
+app.get("/tableArray", function(req, res) {
+    for (var i=0; i < tables.length; i++) {
+     return res.json(tables);
+    }
+});
+
+
+
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
