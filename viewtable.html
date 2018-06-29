@@ -25,7 +25,8 @@
             <div class="card-body">
                     <table class="table">
                             <thead>
-                              <tr> 
+                              <tr>
+                                      <td id="table1"></td> 
                               </tr>
                             </thead>
                             <tbody>
@@ -57,6 +58,18 @@
 
 
 
-<script src= "assets/js/restaurant.js"></script>
+<script type="text/javascript">
+        $.get("/api/tablearray/", function(data){
+                console.log(data);
+                console.log(data[0].name);
+                for (i=0; i<data.length; i++){
+                $("#table1").append(data[i].name);
+                }
+               
+
+        })
+
+
+</script>
 </body>
 </html>
