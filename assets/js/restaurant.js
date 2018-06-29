@@ -18,19 +18,18 @@ var tables = [
         id: "steve"
     }
 ];
- 
 
-app.get("/api/", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
-});
+// app.get("/", function(req, res) {
+//     res.sendFile(path.join(__dirname, "index.html"));
+// });
 
-app.get("/api/reservations", function(req, res) {
+app.get("/reservations", function(req, res) {
     res.sendFile(path.join(__dirname, "reservations.html"));
 });
 
-app.get("/api/viewtables", function(req, res) {
-    res.sendFile(path.join(__dirname, "viewtable.html"));
-});
+// app.get("/tables", function(req, res) {
+//     res.sendFile(path.join(__dirname, "tables.html"));
+// });
 
 
 
